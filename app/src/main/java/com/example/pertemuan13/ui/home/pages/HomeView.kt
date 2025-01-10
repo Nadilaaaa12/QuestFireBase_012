@@ -79,7 +79,7 @@ fun HomeScreen(
             modifier = Modifier.padding(innerPadding),
             onDetailClick = onDetailClick,
             onDeleteClick = {
-                viewModel.getMhs()
+                viewModel.deleteMhs(it)
             }
         )
     }
@@ -100,8 +100,8 @@ fun HomeStatus(
                 mahasiswa = homeUiState.data, modifier = modifier.fillMaxSize(), onDetailClick = {
                     onDetailClick(it)
                 },
-                onDeleteClick =  {
-                    onDeleteClick (it)
+                onDeleteClick = {
+                    onDeleteClick(it)
                 }
             )
             deleteConfirmationRequired?.let { data ->
