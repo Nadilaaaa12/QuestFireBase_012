@@ -1,5 +1,6 @@
 package com.example.pertemuan13
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,19 +12,19 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.pertemuan13.ui.home.pages.HomeScreen
+import com.example.pertemuan13.navigasi.PengelolaHalaman
 import com.example.pertemuan13.ui.theme.Pertemuan13Theme
 
 class MainActivity : ComponentActivity() {
+    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             Pertemuan13Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomeScreen(
+                    PengelolaHalaman(
                         modifier = Modifier.padding(innerPadding),
-                        navigateToltemEntry = {}
                     )
                 }
             }
