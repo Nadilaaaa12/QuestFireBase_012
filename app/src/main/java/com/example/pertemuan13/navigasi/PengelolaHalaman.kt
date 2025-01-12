@@ -23,3 +23,8 @@ fun PengelolaHalaman(
         composable(DestinasiHome.route){
             HomeScreen(
                 navigateToItemEntry = {
+                    navController.navigate(DestinasiInsert.route)
+                }
+            )
+        }
+
