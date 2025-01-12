@@ -8,16 +8,19 @@ plugins {
 
 android {
     namespace = "com.example.pertemuan13"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.pertemuan13"
-        minSdk = 24
+        minSdk = 30
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -36,6 +39,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1" // Sesuaikan dengan versi Compose terbaru
+    }
     buildFeatures {
         compose = true
     }
@@ -52,6 +58,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.firebase.firestore)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
