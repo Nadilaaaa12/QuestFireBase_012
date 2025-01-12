@@ -57,8 +57,9 @@ class NetworkRepositoryMhs(
                 .document(mahasiswa.nim)
                 .delete()
                 .await()
-        } catch (e: Exception) {
-            throw Exception("Gagal menghapus data mahasiswa : ${e.message}")
+        }catch (e: Exception){
+            throw Exception("Gagal menghapus data mahasiswa: " +
+                    "${e.message}")
         }
     }
 
@@ -68,8 +69,10 @@ class NetworkRepositoryMhs(
                 .document(mahasiswa.nim)
                 .set(mahasiswa)
                 .await()
-        } catch (e: Exception) {
-            throw Exception("Gagal mengupdate data mahasiswa : ${e.message}")
+        }catch (e:Exception){
+            throw  Exception("Gagal mengupdate data mahasiswa:" +
+                    "${e.message}")
         }
     }
+
 }
