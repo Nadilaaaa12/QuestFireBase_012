@@ -59,3 +59,27 @@ fun InsertMhsView(
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
 
+
+    LaunchedEffect(uiState){
+        when (uiState) {
+            is FormState.Success -> {
+                println(
+                    "InsertMhsView: uiState is FormState.Success, Navigate to Home" + uiState.message
+                )
+
+                coroutineScope.launch {
+                    snackbarHostState.showSnackbar(uiState.message)
+                }
+                delay(700)
+                onNavigate()
+                viewModel.resetSnackBarMessage()
+            }
+            is FormState.Error -> {
+                coroutineScope.launch {
+                    snackbarHostState.showSnackbar(uiState.message)
+                }
+            }
+            else -> Unit
+        }
+    }
+
