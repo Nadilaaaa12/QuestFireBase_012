@@ -21,3 +21,5 @@ fun PengelolaHalaman(
         modifier = Modifier
     ){
         composable(DestinasiHome.route){
+            HomeScreen(
+                navigateToItemEntry = {
