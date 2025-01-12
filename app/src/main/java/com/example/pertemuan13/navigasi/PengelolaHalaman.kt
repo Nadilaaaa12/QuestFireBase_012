@@ -32,3 +32,9 @@ fun PengelolaHalaman(
             InsertMhsView(
                 onBack = {navController.popBackStack()},
                 onNavigate = {
+                    navController.navigate(DestinasiHome.route)
+                }
+            )
+        }
+    }
+}
