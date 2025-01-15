@@ -18,3 +18,8 @@ Tampilan Delete
 
 Hasil Delete
 ![Tampilan Home ketika data sudah di delete](https://github.com/user-attachments/assets/96efa106-5ae6-4b0a-bf4a-60e0419c9db9)
+
+UCP
+![Hasil run](https://github.com/user-attachments/assets/e34e1fdc-e23c-42ff-bbdd-6278edcbe677)
+
+
