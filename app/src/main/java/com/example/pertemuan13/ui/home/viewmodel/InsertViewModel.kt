@@ -30,12 +30,15 @@ class InsertViewModel (
     fun validateFields(): Boolean{
         val event = uiEvent.insertUiEvent
         val errorState = FormErrorState(
-            nim = if (event.nim.isEmpty()) "NIM Tidak Boleh Kosong" else null,
-            nama = if (event.nama.isEmpty()) "Nama Tidak Boleh Kosong" else null,
-            alamat = if (event.alamat.isEmpty()) "Alamat Tidak Boleh Kosong" else null,
-            jenisKelamin = if (event.jenisKelamin.isEmpty()) "Jenis Kelamin Tidak Boleh Kosong" else null,
-            kelas = if (event.kelas.isEmpty()) "Kelas Tidak Boleh Kosong" else null,
-            angkatan = if (event.angkatan.isEmpty()) "Angkatan Tidak Boleh Kosong" else null
+            nim = if (event.nim.isNotEmpty()) null else "NIM tidak boleh kosong",
+            nama = if (event.nama.isNotEmpty()) null else " Nama tidak boleh kosong",
+            jenisKelamin = if(event.jenisKelamin.isNotEmpty()) null else "Jenis kelamin tidak boleh kosong",
+            alamat = if(event.alamat.isNotEmpty()) null else "Alamat tidak boleh kosong",
+            kelas = if(event.kelas.isNotEmpty()) null else "Kelas tidak boleh kosong",
+            angkatan = if(event.angkatan.isNotEmpty()) null else "Angkatan tidak boleh kosong",
+            judulskripsi = if(event.judulskripsi.isNotEmpty()) null else "judul skirpsi tidak boleh kosong",
+            dospem1 = if(event.dospem1.isNotEmpty()) null else "dosen pembimbing 1 tidak boleh kosong",
+            dospem2 = if(event.dospem2.isNotEmpty()) null else "dosen pembimbing 1 tidak boleh kosong",
         )
 
         uiEvent = uiEvent.copy(isEntryValid = errorState)
@@ -86,11 +89,15 @@ data class FormErrorState(
     val alamat: String? = null,
     val jenisKelamin: String? = null,
     val kelas: String? = null,
-    val angkatan: String? = null
+    val angkatan: String? = null,
+    val judulskripsi: String? = null,
+    val dospem1: String? = null,
+    val dospem2: String?  = null
 ) {
-    fun isValid(): Boolean {
-        return nim == null && nama == null && alamat == null &&
-                jenisKelamin == null && kelas == null && angkatan == null
+    fun isValid(): Boolean{
+        return nim == null && nama == null && jenisKelamin == null
+                && alamat == null && kelas == null && angkatan == null
+                && judulskripsi == null && dospem1 == null && dospem2 == null
     }
 }
 
@@ -100,15 +107,21 @@ data class MahasiswaEvent(
     val alamat: String = "",
     val jenisKelamin: String = "",
     val kelas: String = "",
-    val angkatan: String = ""
+    val angkatan: String = "",
+    val judulskripsi: String =  "",
+    val dospem1: String = "",
+    val dospem2: String = "",
 )
 
 
 fun MahasiswaEvent.toMhsModel(): Mahasiswa = Mahasiswa(
     nim = nim,
     nama = nama,
-    alamat = alamat,
     jenisKelamin = jenisKelamin,
+    alamat = alamat,
     kelas = kelas,
-    angkatan = angkatan
+    angkatan = angkatan,
+    judulskripsi = judulskripsi,
+    dospem1 = dospem1,
+    dospem2 = dospem2
 )
